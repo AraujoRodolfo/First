@@ -7,24 +7,41 @@ $(document).ready(function(){
 	$('#titulo').html("Bem vindo");
 
 });
-function Texto(texto){
-	$('#titulo').html(texto);
+function Texto(onde, texto){
+	if(onde == "titulo")
+		$('#titulo').html(texto);
+	if(onde == "pergunta")
+		$('#pergunta').html(texto);
 }
 var qtd = 0;
 $(document).on('click','#btn',function(){
 	if(qtd == 0){
 		var nome = prompt("Qual é o seu nome?");
 		var texto = $('#titulo').html();
-		Texto(texto+", "+nome);
+		Texto("titulo",texto+", "+nome);
+		Texto("pergunta","Obrigado "+nome+", vamos começar?");
+		$('#btn').val("Começar");
+		
 	}else{
+		
+		var pergunta = "";
+		switch(qtd){
+			case "1":
+				pergunta = "Que dia é hoje?";
+
+			default:
+				pergunta =  "Qual é a próxima questão mesmo?"+qtd;
+		}
+		var p = prompt(pergunta);
 		alert("ja clicou");
 	}
-	qtd++;
+	qtd++;	
 });
 
 </script>
 
 <div id="painel">
 	<h1 id="titulo">Titulo</h1>
+	<p id="pergunta">Por gentileza, nos diga quem você é:</p>
 	<input type="button" id="btn" value="entrar">
 </div>
