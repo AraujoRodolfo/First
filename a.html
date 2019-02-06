@@ -1,0 +1,30 @@
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+	$('#titulo').html("Bem vindo");
+
+});
+function Texto(texto){
+	$('#titulo').html(texto);
+}
+var qtd = 0;
+$(document).on('click','#btn',function(){
+	if(qtd == 0){
+		var nome = prompt("Qual é o seu nome?");
+		var texto = $('#titulo').html();
+		Texto(texto+", "+nome);
+	}else{
+		alert("ja clicou");
+	}
+	qtd++;
+});
+
+</script>
+
+<div id="painel">
+	<h1 id="titulo">Titulo</h1>
+	<input type="button" id="btn" value="entrar">
+</div>
